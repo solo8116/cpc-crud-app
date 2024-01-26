@@ -32,7 +32,7 @@ const register = async (req, res) => {
         .json({ success: false, msg: "enter a valid email" });
     }
     const avatar = req.file.filename;
-    const user = await User.find({ email });
+    const user = await User.findOne({ email });
     if (!user) {
       return res
         .status(400)
